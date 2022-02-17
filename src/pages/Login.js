@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 
 
-const SignUp = () => {
+const Login = () => {
 
 
     return (
@@ -27,16 +27,12 @@ const SignUp = () => {
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Control type="password" placeholder="Password" />
                             </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                <input type="checkbox" className="me-3" />
-                                <label>I agree to the Privacy Policy.</label>
-                            </Form.Group>
                             <Button variant="primary" type="submit">
-                            Sign Up
+                                Login
                             </Button>
                         </Form>
-                        <small className="pt-2 text-warning d-block">Already have an account</small>
-                        <Link to="/" className="text-info" style={{fontSize:"13px", textDecoration:"none"}} >  Sign In</Link>
+                        <small className="pt-2 text-warning d-block">Don't have an account?</small>
+                        <Link to="/signup" className="text-info" style={{fontSize:"13px", textDecoration:"none"}} >  Sign Up</Link>
                     </div>
                     <div className="col-md-2">
                       
@@ -52,4 +48,4 @@ const SignUp = () => {
 }
 
 
-export default SignUp
+export default Login
