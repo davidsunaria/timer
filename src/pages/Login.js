@@ -1,10 +1,12 @@
 import React ,{useState}from "react";
 import { Form, Button } from "react-bootstrap"
 import {Link,useHistory} from "react-router-dom";
+import { useStoreActions, useStoreState } from "easy-peasy";
 
 
 
 const Login = () => {
+    let setlogin = useStoreActions((action)=>action.authentication.setlogin)
 
     let history = useHistory();
 
@@ -26,6 +28,9 @@ const Login = () => {
         })
 
         if(result){
+            console.log("rsult",result)
+            localStorage.setItem("isLogin",true)
+            setlogin(true)
            history.push("/home")
         }
     }

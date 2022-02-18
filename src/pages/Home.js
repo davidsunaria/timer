@@ -8,6 +8,7 @@ const Home = () => {
 
     let location = useLocation()
     console.log("location",location)
+   
 
 
     return (
