@@ -9,7 +9,7 @@ import { useStoreActions, useStoreState } from "easy-peasy";
 
 const Routes = () => {
     console.log("working routes")
-    const login = useStoreState((state) => state.common.login);
+    const login = useStoreState((state) => state.authentication.login);
     
 
     let isLogin = localStorage.getItem("isLogin")
