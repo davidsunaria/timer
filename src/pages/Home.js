@@ -1,19 +1,23 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap"
-import {Link,useLocation} from "react-router-dom"
+import { useStoreActions, useStoreState } from "easy-peasy";
 
 
 
 const Home = () => {
 
-    let location = useLocation()
-    console.log("location",location)
+    let clear = useStoreActions((action)=>action.authentication.clear)
+
+   
+    const logout = () =>{
+        clear(false)
+   }
    
 
 
     return (
         <>
-            <h1>ihfuiwhuifhweuifghwuieghfieuwe</h1>
+            <h1>Welcome to Home Page</h1>
+            <button className="btn btn-info" onClick={logout}>Log Out</button>
 
         </>
     )

@@ -29,14 +29,13 @@ const Login = () => {
 
         if(result){
             console.log("rsult",result)
-            localStorage.setItem("isLogin",true)
             setlogin(true)
            history.push("/home")
+          
         }
     }
 
   
-   console.log("localData",localData)
 
 
     return (

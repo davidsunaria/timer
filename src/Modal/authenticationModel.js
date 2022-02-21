@@ -2,7 +2,7 @@ import { action, thunk } from "easy-peasy";
 
 const authenticationModel = {
   response: [],
-  login:false,
+  reduxlogin:false,
  
   
   addUser: action((state, payload) => {
@@ -11,8 +11,19 @@ const authenticationModel = {
   }),
 
   setlogin: action((state, payload) => {
-    state.login=payload
+    console.log("paylaod",payload)
+    state.reduxlogin=payload
+    localStorage.setItem("isLogin",payload)
   }),
+
+  clear: action((state, payload) => {
+    console.log("paylaod",payload)
+    state.reduxlogin=payload
+    localStorage.removeItem("isLogin");
+  }),
+
+
+
 
 };
 
