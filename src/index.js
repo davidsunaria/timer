@@ -6,11 +6,23 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { StoreProvider } from 'easy-peasy';
 import store from './Modal/store';
+import { useStoreRehydrated } from 'easy-peasy';
+
+
+
+
+function WaitForStateRehydration({ children }) {
+  const isRehydrated = useStoreRehydrated();
+  return isRehydrated ? children : null;
+}
+
 
 ReactDOM.render(
   <React.StrictMode>
     <StoreProvider store={store}>
-      <App />
+      <WaitForStateRehydration>
+        <App />
+      </WaitForStateRehydration>
     </StoreProvider>
   </React.StrictMode>,
   document.getElementById('root')

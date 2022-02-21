@@ -17,7 +17,7 @@ const PrivateRoute = ({component: Component,localLogin, reduxlogin,...rest}) => 
        //   Show the component only when the user is logged in
        //   Otherwise, redirect the user to /signin page
         <Route {...rest} render={props => (
-           localLogin?
+            reduxlogin?
                 <Component {...props} />
             : <Redirect to="/login" />
         )} />
@@ -31,7 +31,7 @@ const PublicRoute = ({ component: Component,localLogin, restricted,reduxlogin, .
        // restricted = false meaning public route
        // restricted = true meaning restricted route
        <Route {...rest} render={props => (
-           localLogin &&   reduxlogin && restricted ?
+             reduxlogin && restricted ?
                <Redirect to="/home" />
                : <Component {...props} />
        )} />
