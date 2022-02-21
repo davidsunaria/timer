@@ -3,7 +3,9 @@ import { persist } from 'easy-peasy';
 
 let storeModal = {
 
-    authentication:persist(authenticationModel)
+    authentication:persist(authenticationModel, {
+        storage: "localStorage",
+      })
 }
 
 export default storeModal
