@@ -11,13 +11,11 @@ const authenticationModel = {
   }),
 
   setlogin: action((state, payload) => {
-    console.log("paylaod",payload)
     state.reduxlogin=payload
   //  localStorage.setItem("isLogin",payload)
   }),
 
   clear: action((state, payload) => {
-    console.log("paylaod",payload)
     state.reduxlogin=payload
     //localStorage.removeItem("isLogin");
   }),
