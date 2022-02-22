@@ -18,16 +18,16 @@ const Home = () => {
     let intervalId
     const demo = (callbackdata) => {
         if (callbackdata == "Play") {
-        // intervalId=setInterval(counter, 1000);
+         intervalId=setInterval(counter, 1000);
         // return () => clearInterval(intervalId);
-        setInterval(()=>{
-            if(count<10){
-                intervalId=setInterval(counter, 1000);
-            }
-        }, 1000);
+        // setInterval(()=>{
+        //     if(count<10){
+        //         setInterval(counter, 1000);
+        //     }
+        // }, 1000);
         }
         if (callbackdata == "Pause") {
-            return () => clearInterval(intervalId);
+             clearInterval(intervalId);
         }
 
         if (callbackdata == "Log Out") {
