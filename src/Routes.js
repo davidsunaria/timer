@@ -10,7 +10,7 @@ import { useStoreActions, useStoreState } from "easy-peasy";
 
 
 
-const PrivateRoute = ({component: Component,localLogin, reduxlogin,...rest}) => {
+const PrivateRoute = ({component: Component, reduxlogin,...rest}) => {
     console.log("private route",reduxlogin)
     return (
 
@@ -25,7 +25,7 @@ const PrivateRoute = ({component: Component,localLogin, reduxlogin,...rest}) => 
 };
 
 
-const PublicRoute = ({ component: Component,localLogin, restricted,reduxlogin, ...rest }) => {
+const PublicRoute = ({ component: Component, restricted,reduxlogin, ...rest }) => {
     console.log("public route",reduxlogin)
    return (
        // restricted = false meaning public route
@@ -43,7 +43,6 @@ const PublicRoute = ({ component: Component,localLogin, restricted,reduxlogin, .
 
 const Routes = () => {
 
-    let isLogin = localStorage.getItem("isLogin")
     let reduxlogin = useStoreState((state)=>state.authentication.reduxlogin)
 
    
@@ -54,9 +53,9 @@ const Routes = () => {
         <>
             <BrowserRouter>
                 <Switch>
-                    <PublicRoute restricted={true} component={Login} path="/login" localLogin={isLogin} reduxlogin={reduxlogin} exact />
-                    <PrivateRoute component={Home} path="/home" localLogin={isLogin} reduxlogin={reduxlogin} exact />
-                    <PublicRoute path={"/signup"} localLogin={isLogin} reduxlogin={reduxlogin} component={SignUp} />
+                    <PublicRoute restricted={true} component={Login} path="/login"  reduxlogin={reduxlogin} exact />
+                    <PrivateRoute component={Home} path="/home"  reduxlogin={reduxlogin} exact />
+                    <PublicRoute path={"/signup"}  reduxlogin={reduxlogin} component={SignUp} />
                     <Route
                         path="/"
                         render={() => <Redirect to="/login" />}

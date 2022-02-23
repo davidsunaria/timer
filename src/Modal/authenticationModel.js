@@ -6,6 +6,7 @@ const authenticationModel = {
  
   
   addUser: action((state, payload) => {
+    console.log(payload,",payloa")
     state.response.push(payload)
     //localStorage.setItem("userDetail",JSON.stringify( state.response))
   }),

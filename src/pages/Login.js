@@ -7,6 +7,7 @@ import { useStoreActions, useStoreState } from "easy-peasy";
 
 const Login = () => {
     let setlogin = useStoreActions((action)=>action.authentication.setlogin)
+    let response = useStoreState((state)=>state.authentication.response)
 
     let history = useHistory();
 
@@ -19,22 +20,19 @@ const Login = () => {
         setLogin({...loginData,[e.target.name]:e.target.value})
     }
 
-    let localData= localStorage.getItem("userDetail")
 
     const submit = (e) =>{
         e.preventDefault()
-      let result=  JSON.parse(localData).some((value)=>{
+      let result=  response.some((value)=>{
             return value.password === loginData.password && value.username === loginData.user;
         })
 
         if(result){
-            console.log("rsult",result)
             setlogin(true)
            history.push("/home")
           
         }
     }
-
   
 
 
